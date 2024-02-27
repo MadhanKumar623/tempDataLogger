@@ -6,6 +6,8 @@ I done this project using the atmega2560 microcontroller unit (arduino mega2560 
 
 I have done this in Wokwi simulation, so I have attached the diagram.json file also in the project folder, so you can execute this project in the wokwi simulation or else in the real time hardware also.
 
+In this single project you can get the driver code for I2C,ADC,UART,RTC,LCD e.t.c.
+
 My simulation link https://wokwi.com/projects/390701463449896961
 
 Thank you.
