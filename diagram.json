@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "author": "MADHAN KUMAR. S",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-mega",
+      "id": "mega",
+      "top": 17.6,
+      "left": -108.2,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": -63, "left": 432.1, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -62.4,
+      "left": 249.05,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -62.4,
+      "left": 316.25,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 187.2,
+      "left": 316.25,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 187.2,
+      "left": 268.25,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd2",
+      "top": 150.4,
+      "left": 514.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -65.1,
+      "left": -163.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-microsd-card", "id": "sd1", "top": 201.83, "left": -220.73, "attrs": {} }
+  ],
+  "connections": [
+    [ "rtc1:SDA", "r2:2", "green", [ "h0" ] ],
+    [ "mega:SDA", "r2:2", "green", [ "h0" ] ],
+    [ "rtc1:SCL", "r1:2", "green", [ "h0" ] ],
+    [ "mega:SCL", "r1:2", "green", [ "h0" ] ],
+    [ "mega:5V", "r1:1", "red", [ "h-26.1", "v-228.1", "h307.2", "v38.4" ] ],
+    [ "r1:1", "r2:1", "red", [ "h0", "v-57.6", "h67.2" ] ],
+    [ "mega:5V", "rtc1:5V", "red", [ "h-35.7", "v-237.7", "h403.2", "v115.2" ] ],
+    [ "rtc1:GND", "mega:GND.1", "black", [ "h-67.2", "v86.4" ] ],
+    [ "r4:1", "r3:1", "red", [ "h0" ] ],
+    [ "mega:5V.1", "r4:1", "red", [ "v-2.2", "h18.2", "v-115.2" ] ],
+    [ "r4:2", "mega:SCL", "green", [ "h-96", "v-212.4" ] ],
+    [ "mega:SDA", "r3:2", "green", [ "h57.6", "v230", "h124.8" ] ],
+    [ "r3:2", "lcd2:SDA", "green", [ "h0", "v27.6", "h153.6", "v-48" ] ],
+    [ "r4:2", "lcd2:SCL", "green", [ "h0", "v37.2", "h211.2", "v-48" ] ],
+    [ "mega:5V.2", "lcd2:VCC", "red", [ "h296.6", "v-108.2" ] ],
+    [ "lcd2:GND", "mega:GND.5", "black", [ "h-57.6", "v124.8", "h-451.2" ] ],
+    [ "ntc1:OUT", "mega:A0", "gold", [ "v0" ] ],
+    [ "ntc1:GND", "mega:GND.3", "black", [ "v0" ] ],
+    [ "ntc1:VCC", "mega:5V", "red", [ "v0" ] ],
+    [ "sd1:VCC", "mega:5V.2", "red", [ "h19.2", "v96.14", "h297.6", "v-28.8" ] ],
+    [ "sd1:GND", "mega:GND.3", "black", [ "h57.6", "v-124.69" ] ],
+    [ "sd1:SCK", "mega:52", "green", [ "h0" ] ],
+    [ "mega:50", "sd1:DO", "green", [ "v0" ] ],
+    [ "sd1:DI", "mega:51", "green", [ "h28.8", "v57.51", "h144" ] ],
+    [ "sd1:CS", "mega:53", "green", [ "h86.4", "v57.66", "h76.8" ] ]
+  ],
+  "dependencies": {}
+}
